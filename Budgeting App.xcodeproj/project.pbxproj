@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1216E302876CFFA00392A85 /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1216E2F2876CFFA00392A85 /* TransactionItem.swift */; };
+		C1216E322876D0EF00392A85 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1216E312876D0EF00392A85 /* CategoryItem.swift */; };
 		C1D86213286CA8AE0037312E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D86212286CA8AE0037312E /* AppDelegate.swift */; };
 		C1D86215286CA8AE0037312E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D86214286CA8AE0037312E /* SceneDelegate.swift */; };
 		C1D86217286CA8AE0037312E /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D86216286CA8AE0037312E /* BalanceViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1216E2F2876CFFA00392A85 /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
+		C1216E312876D0EF00392A85 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C1D8620F286CA8AE0037312E /* Budgeting App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budgeting App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D86212286CA8AE0037312E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D86214286CA8AE0037312E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 		C1D8622A286CAE650037312E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C1216E2F2876CFFA00392A85 /* TransactionItem.swift */,
+				C1216E312876D0EF00392A85 /* CategoryItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,7 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1D86217286CA8AE0037312E /* BalanceViewController.swift in Sources */,
+				C1216E302876CFFA00392A85 /* TransactionItem.swift in Sources */,
 				C1D86213286CA8AE0037312E /* AppDelegate.swift in Sources */,
+				C1216E322876D0EF00392A85 /* CategoryItem.swift in Sources */,
 				C1D86215286CA8AE0037312E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
