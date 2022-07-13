@@ -1,5 +1,5 @@
 import UIKit
-
+//
 class CategoryCell: UITableViewCell {
     
     @IBOutlet weak var realValueLabel: UILabel!
@@ -10,7 +10,6 @@ class CategoryCell: UITableViewCell {
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
