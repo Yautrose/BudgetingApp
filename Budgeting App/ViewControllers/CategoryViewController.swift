@@ -1,28 +1,30 @@
-//
-//  BalanceViewController.swift
-//  Budgeting App
-//
-//  Created by Alexey Artyushenko on 29.06.2022.
-//
-
 import UIKit
 
-class BalanceViewController: UIViewController {
+class CategoryCell: UITableViewCell {
+    
+    @IBOutlet weak var realValueLabel: UILabel!
+    @IBOutlet weak var expectedValueLabel: UILabel!
+    @IBOutlet weak var categoryNameLabel: UILabel!
+}
+
+class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
-    @IBAction private func addItem() {
+    
+    @IBAction private func addCategorieItem() {
         
     }
     
 }
 
-extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
+
+extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -33,8 +35,10 @@ extension BalanceViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         return cell
+
     }
+    
     
 }
