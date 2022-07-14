@@ -104,7 +104,7 @@
         <!--New Transaction-->
         <scene sceneID="jZL-UB-1Uj">
             <objects>
-                <tableViewController id="FsT-jP-BDS" sceneMemberID="viewController">
+                <tableViewController id="FsT-jP-BDS" customClass="AddNewTransactionViewController" customModule="Budgeting_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3P5-Vf-WFf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,8 +205,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Transaction" id="1BZ-jw-zgO">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="uG8-j1-dhN"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="uG8-j1-dhN">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="FsT-jP-BDS" id="Pqm-hn-M6K"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="transactionCategoryTextField" destination="XdE-Qt-m8X" id="dfL-cD-B7X"/>
+                        <outlet property="transactionCostTextField" destination="5Wy-dv-mgQ" id="8qq-KE-djb"/>
+                        <outlet property="transactionDataTextField" destination="lxF-cU-A6R" id="OUO-94-1zq"/>
+                        <outlet property="transactionNameTextField" destination="SUt-PD-m54" id="8pn-Rv-SAh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmD-G4-EyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,6 +338,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FPn-no-dfL">
                             <connections>
                                 <action selector="addCategorieItem" destination="mqW-R5-F7m" id="teb-4O-NMN"/>
+                                <segue destination="rM9-Jx-Jdj" kind="show" id="ECl-qy-woH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -338,6 +349,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SR0-Uw-nZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1838" y="867"/>
+        </scene>
+        <!--New category-->
+        <scene sceneID="KfB-oe-PLO">
+            <objects>
+                <tableViewController id="rM9-Jx-Jdj" customClass="AddNewCategoyViewController" customModule="Budgeting_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mIQ-J8-ZRC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="BxH-7G-38g">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cyp-jh-AfC">
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cyp-jh-AfC" id="ch8-o7-lOE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5C-Kh-W5x">
+                                                    <rect key="frame" x="16" y="4" width="343" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="h5C-Kh-W5x" secondAttribute="trailing" constant="16" id="bkM-jg-B0n"/>
+                                                <constraint firstAttribute="bottom" secondItem="h5C-Kh-W5x" secondAttribute="bottom" constant="4" id="wod-jJ-eTM"/>
+                                                <constraint firstItem="h5C-Kh-W5x" firstAttribute="top" secondItem="ch8-o7-lOE" secondAttribute="top" constant="4" id="xVy-zw-CcA"/>
+                                                <constraint firstItem="h5C-Kh-W5x" firstAttribute="leading" secondItem="ch8-o7-lOE" secondAttribute="leading" constant="16" id="yyw-ic-3rA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Cw9-UV-E7I">
+                                        <rect key="frame" x="0.0" y="86.5" width="375" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cw9-UV-E7I" id="GZ3-p5-jfk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expected value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZt-qY-w9v">
+                                                    <rect key="frame" x="16" y="4" width="343" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="YZt-qY-w9v" secondAttribute="bottom" constant="4" id="6ln-8z-7jk"/>
+                                                <constraint firstItem="YZt-qY-w9v" firstAttribute="top" secondItem="GZ3-p5-jfk" secondAttribute="top" constant="4" id="eGz-De-JrD"/>
+                                                <constraint firstItem="YZt-qY-w9v" firstAttribute="leading" secondItem="GZ3-p5-jfk" secondAttribute="leading" constant="16" id="nbQ-dP-gTV"/>
+                                                <constraint firstAttribute="trailing" secondItem="YZt-qY-w9v" secondAttribute="trailing" constant="16" id="uLe-bq-YPj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rM9-Jx-Jdj" id="P14-QI-tzt"/>
+                            <outlet property="delegate" destination="rM9-Jx-Jdj" id="izY-lO-hLK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New category" id="fGy-bE-mfR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="1KX-mZ-Vvi">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="rM9-Jx-Jdj" id="xD2-S2-IqX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoryNameTextField" destination="h5C-Kh-W5x" id="ajL-0V-Gvc"/>
+                        <outlet property="expectedValueTextField" destination="YZt-qY-w9v" id="9RF-bu-7c0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Psg-jW-Oh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2708" y="866.71664167916049"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gJf-6U-E4d">

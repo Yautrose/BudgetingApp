@@ -12,4 +12,7 @@ class CategoryItem {
         self.expectedValue = expectedValue
     }
     
+    func addNewCategory(_ name: String,_ expextedValue: Double) {
+        
+    }
 }
