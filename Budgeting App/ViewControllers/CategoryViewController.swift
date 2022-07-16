@@ -1,11 +1,4 @@
 import UIKit
-//
-class CategoryCell: UITableViewCell {
-    
-    @IBOutlet weak var realValueLabel: UILabel!
-    @IBOutlet weak var expectedValueLabel: UILabel!
-    @IBOutlet weak var categoryNameLabel: UILabel!
-}
 
 class CategoryViewController: UIViewController {
     
@@ -14,6 +7,10 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     @IBAction private func addCategorieItem() {
@@ -30,11 +27,14 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return Categories.arrayOfCategoryItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTableViewCell
+        let item = Categories.arrayOfCategoryItem[indexPath.row]
+        cell.categoryNameLabel.text = item.name
+        //add row
         return cell
 
     }

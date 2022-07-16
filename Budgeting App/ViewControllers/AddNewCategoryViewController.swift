@@ -13,9 +13,16 @@ class AddNewCategoyViewController: UITableViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        guard let name = categoryNameTextField.text,
+              let expectedValue = Double(expectedValueTextField.text ?? ""),
+              !name.isEmpty,
+              expectedValue != 0
+        else {
+            return
+        }
         
-        //addNewCategory(categoryNameTextField.text, expectedValueTextField.text)
-        
+        Categories.addNewCategory(name, expectedValue)
+        navigationController?.popViewController(animated: true)
     }
     
 }

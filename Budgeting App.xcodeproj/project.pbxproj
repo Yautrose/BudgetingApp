@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C1216E302876CFFA00392A85 /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1216E2F2876CFFA00392A85 /* TransactionItem.swift */; };
 		C1216E322876D0EF00392A85 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1216E312876D0EF00392A85 /* CategoryItem.swift */; };
+		C1274398288292BA001151D9 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1274397288292BA001151D9 /* Categories.swift */; };
+		C127439A28829422001151D9 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C127439928829421001151D9 /* Transactions.swift */; };
+		C127439D2882A665001151D9 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C127439C2882A664001151D9 /* CategoryTableViewCell.swift */; };
 		C17D15AB287F28C900597A20 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D15AA287F28C900597A20 /* CategoryViewController.swift */; };
 		C17D15AD287F65D800597A20 /* AddNewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D15AC287F65D700597A20 /* AddNewTransactionViewController.swift */; };
 		C17D15AF287F65F800597A20 /* AddNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D15AE287F65F700597A20 /* AddNewCategoryViewController.swift */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		C1216E2F2876CFFA00392A85 /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		C1216E312876D0EF00392A85 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		C1274397288292BA001151D9 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		C127439928829421001151D9 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		C127439C2882A664001151D9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C17D15AA287F28C900597A20 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C17D15AC287F65D700597A20 /* AddNewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTransactionViewController.swift; sourceTree = "<group>"; };
 		C17D15AE287F65F700597A20 /* AddNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C127439B2882A604001151D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C127439C2882A664001151D9 /* CategoryTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C1D86206286CA8AD0037312E = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +80,7 @@
 		C1D86211286CA8AE0037312E /* Budgeting App */ = {
 			isa = PBXGroup;
 			children = (
+				C127439B2882A604001151D9 /* Views */,
 				C1D8622A286CAE650037312E /* Models */,
 				C1D8622B286CAE6D0037312E /* Resources */,
 				C1D86226286CAD000037312E /* StoryBoards */,
@@ -110,6 +125,8 @@
 			children = (
 				C1216E2F2876CFFA00392A85 /* TransactionItem.swift */,
 				C1216E312876D0EF00392A85 /* CategoryItem.swift */,
+				C1274397288292BA001151D9 /* Categories.swift */,
+				C127439928829421001151D9 /* Transactions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,11 +210,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C127439A28829422001151D9 /* Transactions.swift in Sources */,
 				C1D86217286CA8AE0037312E /* TransactionViewController.swift in Sources */,
 				C17D15AF287F65F800597A20 /* AddNewCategoryViewController.swift in Sources */,
 				C17D15AD287F65D800597A20 /* AddNewTransactionViewController.swift in Sources */,
 				C1216E302876CFFA00392A85 /* TransactionItem.swift in Sources */,
 				C1D86213286CA8AE0037312E /* AppDelegate.swift in Sources */,
+				C127439D2882A665001151D9 /* CategoryTableViewCell.swift in Sources */,
+				C1274398288292BA001151D9 /* Categories.swift in Sources */,
 				C1216E322876D0EF00392A85 /* CategoryItem.swift in Sources */,
 				C17D15AB287F28C900597A20 /* CategoryViewController.swift in Sources */,
 				C1D86215286CA8AE0037312E /* SceneDelegate.swift in Sources */,
