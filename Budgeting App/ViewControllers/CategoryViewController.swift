@@ -19,7 +19,6 @@ class CategoryViewController: UIViewController {
     
 }
 
-
 extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,11 +32,12 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTableViewCell
         let item = Categories.arrayOfCategoryItem[indexPath.row]
+        let value = Categories.arrayOfCategoryItem[indexPath.row]
         cell.categoryNameLabel.text = item.name
-        //add row
+        cell.expectedValueLabel.text = String(value.expectedValue)
+        
         return cell
 
     }
-    
     
 }

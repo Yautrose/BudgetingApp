@@ -1,10 +1,3 @@
-//
-//  CategoryTableViewCell.swift
-//  Budgeting App
-//
-//  Created by Alexey Artyushenko on 16.07.2022.
-//
-
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {

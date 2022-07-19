@@ -21,6 +21,8 @@
 		C1D8621A286CA8AE0037312E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D86218286CA8AE0037312E /* Main.storyboard */; };
 		C1D8621C286CA8C30037312E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D8621B286CA8C30037312E /* Assets.xcassets */; };
 		C1D8621F286CA8C30037312E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D8621D286CA8C30037312E /* LaunchScreen.storyboard */; };
+		C1ED9974288727C000640384 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED9973288727C000640384 /* TransactionTableViewCell.swift */; };
+		C1ED997628873EAA00640384 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED997528873EAA00640384 /* DatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		C1D8621B286CA8C30037312E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1D8621E286CA8C30037312E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1D86220286CA8C30037312E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1ED9973288727C000640384 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		C1ED997528873EAA00640384 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				C127439C2882A664001151D9 /* CategoryTableViewCell.swift */,
+				C1ED9973288727C000640384 /* TransactionTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 				C1216E312876D0EF00392A85 /* CategoryItem.swift */,
 				C1274397288292BA001151D9 /* Categories.swift */,
 				C127439928829421001151D9 /* Transactions.swift */,
+				C1ED997528873EAA00640384 /* DatePicker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1ED997628873EAA00640384 /* DatePicker.swift in Sources */,
 				C127439A28829422001151D9 /* Transactions.swift in Sources */,
 				C1D86217286CA8AE0037312E /* TransactionViewController.swift in Sources */,
 				C17D15AF287F65F800597A20 /* AddNewCategoryViewController.swift in Sources */,
@@ -220,6 +227,7 @@
 				C1274398288292BA001151D9 /* Categories.swift in Sources */,
 				C1216E322876D0EF00392A85 /* CategoryItem.swift in Sources */,
 				C17D15AB287F28C900597A20 /* CategoryViewController.swift in Sources */,
+				C1ED9974288727C000640384 /* TransactionTableViewCell.swift in Sources */,
 				C1D86215286CA8AE0037312E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

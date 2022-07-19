@@ -13,8 +13,5 @@ class TransactionItem {
         self.cost = cost
         self.date = date
     }
- 
-    func addNewTransaction (name: String, category: CategoryItem, cost: Double, date: Date) {
-        
-    }
+    
 }

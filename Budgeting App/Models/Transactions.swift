@@ -1,10 +1,11 @@
-//  import Foundation
+import Foundation
 
-//  class Transactions {
-//
-//    var arrayOfTransactionItem: [CategoryItem]
-//
-//    addNewTransaction (name: transactionNameTextField.text, category: CategoryItem, cost: Double, date: Date)
-//
-//}
-
+class Transactions {
+    
+    static var arrayOfTransactionItem: [TransactionItem] = []
+    
+    static func addNewTransaction (name: String, category: CategoryItem, cost: Double, date: Date) {
+        arrayOfTransactionItem.append(TransactionItem(name: name, category: category, cost: cost, date: date))
+    }
+    
+}

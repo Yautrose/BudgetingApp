@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" rowHeight="64" id="QAf-3c-xae">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" rowHeight="64" id="QAf-3c-xae" customClass="TransactionTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QAf-3c-xae" id="ear-m0-MSn">
@@ -68,6 +68,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="categoryLable" destination="Bqp-o4-yML" id="h08-GY-ql5"/>
+                                            <outlet property="costLabel" destination="Uom-23-V0T" id="PeY-ce-y2A"/>
+                                            <outlet property="dateLabel" destination="W8v-14-drP" id="dhs-cx-AAs"/>
+                                            <outlet property="nameLabel" destination="QmC-PN-b1i" id="pYt-Cn-X6s"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -214,7 +220,7 @@
                     <connections>
                         <outlet property="transactionCategoryTextField" destination="XdE-Qt-m8X" id="dfL-cD-B7X"/>
                         <outlet property="transactionCostTextField" destination="5Wy-dv-mgQ" id="8qq-KE-djb"/>
-                        <outlet property="transactionDataTextField" destination="lxF-cU-A6R" id="OUO-94-1zq"/>
+                        <outlet property="transactionDateTextField" destination="lxF-cU-A6R" id="OUO-94-1zq"/>
                         <outlet property="transactionNameTextField" destination="SUt-PD-m54" id="8pn-Rv-SAh"/>
                     </connections>
                 </tableViewController>
@@ -226,7 +232,9 @@
         <scene sceneID="7cF-wW-SYS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TtO-AK-7f6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-transaction-50" springLoaded="YES" id="vpc-GN-vk3"/>
+                    <tabBarItem key="tabBarItem" title="" springLoaded="YES" id="vpc-GN-vk3">
+                        <imageReference key="image" image="creditcard" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ef9-2b-Ubt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -283,15 +291,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-yv-ise">
-                                                    <rect key="frame" x="16" y="6.5" width="48" height="51.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="hyz-xF-msO"/>
-                                                    </constraints>
-                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeO-zU-BnY">
-                                                    <rect key="frame" x="80" y="19" width="47.5" height="26"/>
+                                                    <rect key="frame" x="32" y="19" width="47.5" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -300,13 +301,10 @@
                                             <constraints>
                                                 <constraint firstItem="eMs-u0-79N" firstAttribute="top" secondItem="pGF-aB-cOb" secondAttribute="topMargin" constant="11" id="09I-W5-FcY"/>
                                                 <constraint firstItem="eMs-u0-79N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JeO-zU-BnY" secondAttribute="trailing" constant="8" symbolic="YES" id="6gU-5R-Pnq"/>
-                                                <constraint firstItem="gbf-yv-ise" firstAttribute="leading" secondItem="pGF-aB-cOb" secondAttribute="leadingMargin" id="CMi-i7-Vle"/>
+                                                <constraint firstItem="JeO-zU-BnY" firstAttribute="centerY" secondItem="eMs-u0-79N" secondAttribute="centerY" id="FYH-nJ-bxd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="JeO-zU-BnY" secondAttribute="bottom" constant="8" id="MaL-RP-2Ic"/>
-                                                <constraint firstItem="JeO-zU-BnY" firstAttribute="leading" secondItem="gbf-yv-ise" secondAttribute="trailing" constant="16" id="Mhe-qE-vzu"/>
-                                                <constraint firstItem="gbf-yv-ise" firstAttribute="centerY" secondItem="JeO-zU-BnY" secondAttribute="centerY" id="e1d-Wd-AF5"/>
-                                                <constraint firstItem="gbf-yv-ise" firstAttribute="centerY" secondItem="eMs-u0-79N" secondAttribute="centerY" id="gPz-7f-j3l"/>
-                                                <constraint firstItem="gbf-yv-ise" firstAttribute="top" secondItem="pGF-aB-cOb" secondAttribute="topMargin" constant="-3" id="oUl-NO-AMY"/>
                                                 <constraint firstItem="eMs-u0-79N" firstAttribute="trailing" secondItem="pGF-aB-cOb" secondAttribute="trailingMargin" id="sWX-Jt-WTU"/>
+                                                <constraint firstItem="JeO-zU-BnY" firstAttribute="leading" secondItem="pGF-aB-cOb" secondAttribute="leadingMargin" constant="16" id="vl9-3D-c92"/>
                                                 <constraint firstItem="JeO-zU-BnY" firstAttribute="centerY" secondItem="pGF-aB-cOb" secondAttribute="centerY" id="wN9-PF-cm8"/>
                                                 <constraint firstItem="JeO-zU-BnY" firstAttribute="top" secondItem="pGF-aB-cOb" secondAttribute="topMargin" constant="8" id="ws1-Hu-4Zo"/>
                                             </constraints>
@@ -450,7 +448,7 @@
         <scene sceneID="V18-e0-7SC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wcw-Oa-PrJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-ledger-50" id="vfk-o3-VsM"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="vfk-o3-VsM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gwI-01-VkU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -467,9 +465,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="icons8-ledger-50" width="50" height="50"/>
-        <image name="icons8-transaction-50" width="50" height="50"/>
+        <image name="creditcard" catalog="system" width="128" height="88"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
