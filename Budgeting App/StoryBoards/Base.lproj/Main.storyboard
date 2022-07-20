@@ -211,7 +211,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Transaction" id="1BZ-jw-zgO">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="uG8-j1-dhN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uG8-j1-dhN">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="FsT-jP-BDS" id="Pqm-hn-M6K"/>
                             </connections>
@@ -436,8 +436,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TtO-AK-7f6" kind="relationship" relationship="viewControllers" id="4JJ-lb-WSj"/>
                         <segue destination="Wcw-Oa-PrJ" kind="relationship" relationship="viewControllers" id="iV5-vr-vyy"/>
+                        <segue destination="TtO-AK-7f6" kind="relationship" relationship="viewControllers" id="4JJ-lb-WSj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxt-pN-T4A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

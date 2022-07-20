@@ -35,7 +35,12 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
         let value = Categories.arrayOfCategoryItem[indexPath.row]
         cell.categoryNameLabel.text = item.name
         cell.expectedValueLabel.text = String(value.expectedValue)
+        let realValue = Transactions.arrayOfTransactionItem
+            .filter { $0.category == item }
+            .map { $0.cost }
+            .reduce(0, +)
         
+        cell.realValueLabel.text = String(realValue)
         return cell
 
     }

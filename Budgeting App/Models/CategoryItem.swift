@@ -1,6 +1,10 @@
 import Foundation
 
-class CategoryItem {
+class CategoryItem: Equatable {
+    static func == (lhs: CategoryItem, rhs: CategoryItem) -> Bool {
+        lhs.name == rhs.name
+        && lhs.expectedValue == rhs.expectedValue
+    }
     
     let name: String
     let realValue: Double
