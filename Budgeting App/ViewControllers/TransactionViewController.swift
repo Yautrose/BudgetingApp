@@ -34,6 +34,9 @@ extension TransactionViewController: UITableViewDataSource, UITableViewDelegate 
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
         let item = Transactions.arrayOfTransactionItem[indexPath.row]
         cell.nameLabel.text = item.name
+        cell.categoryLable.text = item.category.name
+        cell.costLabel.text = String(item.cost)
+        //cell.dateLabel.text = 
         return cell
     }
     

@@ -2,8 +2,6 @@ import UIKit
 
 class AddNewCategoyViewController: UITableViewController {
     
-    
-    
     @IBOutlet weak var categoryNameTextField: UITextField!
     @IBOutlet weak var expectedValueTextField: UITextField!
     

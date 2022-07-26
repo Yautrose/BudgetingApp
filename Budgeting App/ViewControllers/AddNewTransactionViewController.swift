@@ -46,7 +46,7 @@ class AddNewTransactionViewController: UITableViewController {
     func getDateFromPicker() {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
-        transactionDateTextField.text = String(formatter.string(from: datePicker.date)) //
+        transactionDateTextField.text = String(formatter.string(from: datePicker.date))
     }
     
     func createCategoryPicker() {

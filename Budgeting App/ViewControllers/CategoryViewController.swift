@@ -39,7 +39,6 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
             .filter { $0.category == item }
             .map { $0.cost }
             .reduce(0, +)
-        
         cell.realValueLabel.text = String(realValue)
         return cell
 
