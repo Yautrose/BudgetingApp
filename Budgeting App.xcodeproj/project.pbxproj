@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66B491390BCCBC7645218343 /* Pods_Budgeting_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D455F53747CACBCDA18E2E6C /* Pods_Budgeting_App.framework */; };
+		C1175B3D2891A8BD004A021F /* DateFormatter+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1175B3C2891A8BD004A021F /* DateFormatter+Formats.swift */; };
 		C1216E302876CFFA00392A85 /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1216E2F2876CFFA00392A85 /* TransactionItem.swift */; };
 		C1216E322876D0EF00392A85 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1216E312876D0EF00392A85 /* CategoryItem.swift */; };
 		C1274398288292BA001151D9 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1274397288292BA001151D9 /* Categories.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1175B3C2891A8BD004A021F /* DateFormatter+Formats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formats.swift"; sourceTree = "<group>"; };
 		C1216E2F2876CFFA00392A85 /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		C1216E312876D0EF00392A85 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C1274397288292BA001151D9 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -74,8 +76,15 @@
 				F6127DE5C9653DE8BB1DC935 /* Pods-Budgeting App.debug.xcconfig */,
 				EAE38DBD4524DC9DED91CBAC /* Pods-Budgeting App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C1175B3B2891A88B004A021F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1175B3C2891A8BD004A021F /* DateFormatter+Formats.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C127439B2882A604001151D9 /* Views */ = {
@@ -108,6 +117,7 @@
 		C1D86211286CA8AE0037312E /* Budgeting App */ = {
 			isa = PBXGroup;
 			children = (
+				C1175B3B2891A88B004A021F /* Extensions */,
 				C127439B2882A604001151D9 /* Views */,
 				C1D8622A286CAE650037312E /* Models */,
 				C1D8622B286CAE6D0037312E /* Resources */,
@@ -294,6 +304,7 @@
 				C17D15AB287F28C900597A20 /* CategoryViewController.swift in Sources */,
 				C1ED9974288727C000640384 /* TransactionTableViewCell.swift in Sources */,
 				C1D86215286CA8AE0037312E /* SceneDelegate.swift in Sources */,
+				C1175B3D2891A8BD004A021F /* DateFormatter+Formats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
