@@ -65,11 +65,11 @@ class AddNewTransactionViewController: UITableViewController {
     }
     
     @objc func doneCategoryAction() {
-        let selectedCategoryIndex = categoryPicker.selectedRow(inComponent: 0)
-        let selectedCategory = Categories.arrayOfCategoryItem[selectedCategoryIndex]
-        self.selectedCategory = selectedCategory
-        transactionCategoryTextField.text = selectedCategory.name
-        view.endEditing(true)
+//        let selectedCategoryIndex = categoryPicker.selectedRow(inComponent: 0)
+//        //let selectedCategory = Categories.arrayOfCategoryItem[selectedCategoryIndex]
+//        self.selectedCategory = selectedCategory
+//        transactionCategoryTextField.text = selectedCategory.name
+//        view.endEditing(true)
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
@@ -98,11 +98,11 @@ extension AddNewTransactionViewController: UIPickerViewDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Categories.arrayOfCategoryItem.count
+        return 0//Categories.arrayOfCategoryItem.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Categories.arrayOfCategoryItem[row].name
+        return ""//Categories.arrayOfCategoryItem[row].name
     }
     
 }

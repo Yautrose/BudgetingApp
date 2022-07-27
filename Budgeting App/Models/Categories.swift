@@ -1,11 +1,14 @@
 import Foundation
+import RealmSwift
 
 class Categories {
     
-    static var arrayOfCategoryItem: [CategoryItem] = []
-    
     static func addNewCategory(_ name: String,_ expextedValue: Double) {
-        arrayOfCategoryItem.append(CategoryItem(name: name, realValue: 0, expectedValue: expextedValue))
+        let realm = try! Realm()
+        try! realm.write {
+            let category = CategoryItem(name: name, realValue: 0, expectedValue: expextedValue)
+            realm.add(category)
+        }
     }
     
 }

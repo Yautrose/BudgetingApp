@@ -1,16 +1,17 @@
 import Foundation
+import RealmSwift
 
-class CategoryItem: Equatable {
-    static func == (lhs: CategoryItem, rhs: CategoryItem) -> Bool {
-        lhs.name == rhs.name
-        && lhs.expectedValue == rhs.expectedValue
-    }
+class CategoryItem: Object {
     
-    let name: String
-    let realValue: Double
-    let expectedValue: Double
+    @Persisted(primaryKey: true) var id: String
+    @Persisted var name: String
+    @Persisted var realValue: Double
+    @Persisted var expectedValue: Double
+    @Persisted var transactions: List<TransactionItem>
     
-    init(name: String, realValue: Double, expectedValue: Double) {
+    convenience init(id: String = UUID().uuidString, name: String, realValue: Double, expectedValue: Double) {
+        self.init()
+        self.id = id
         self.name = name
         self.realValue = realValue
         self.expectedValue = expectedValue
