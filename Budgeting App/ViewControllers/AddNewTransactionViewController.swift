@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class AddNewTransactionViewController: UITableViewController {
     
@@ -7,6 +8,7 @@ class AddNewTransactionViewController: UITableViewController {
     @IBOutlet weak var transactionDateTextField: UITextField!
     @IBOutlet weak var transactionCategoryTextField: UITextField!
     
+    var categories = [CategoryItem]()
     let datePicker = UIDatePicker()
     let categoryPicker = UIPickerView()
     var selectedDate: Date?
@@ -15,7 +17,8 @@ class AddNewTransactionViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let realm = try! Realm()
+        categories = Array(realm.objects(CategoryItem.self))
         createPicker()
         createCategoryPicker()
 
@@ -65,11 +68,11 @@ class AddNewTransactionViewController: UITableViewController {
     }
     
     @objc func doneCategoryAction() {
-//        let selectedCategoryIndex = categoryPicker.selectedRow(inComponent: 0)
-//        //let selectedCategory = Categories.arrayOfCategoryItem[selectedCategoryIndex]
-//        self.selectedCategory = selectedCategory
-//        transactionCategoryTextField.text = selectedCategory.name
-//        view.endEditing(true)
+        let selectedCategoryIndex = categoryPicker.selectedRow(inComponent: 0)
+        let selectedCategory = categories[selectedCategoryIndex]
+        self.selectedCategory = selectedCategory
+        transactionCategoryTextField.text = selectedCategory.name
+        view.endEditing(true)
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
@@ -98,11 +101,11 @@ extension AddNewTransactionViewController: UIPickerViewDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 0//Categories.arrayOfCategoryItem.count
+        return categories.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ""//Categories.arrayOfCategoryItem[row].name
+        return categories[row].name
     }
     
 }

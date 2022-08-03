@@ -1,11 +1,14 @@
 import Foundation
+import RealmSwift
 
 class Transactions {
     
-    static var arrayOfTransactionItem: [TransactionItem] = []
-    
     static func addNewTransaction (name: String, category: CategoryItem, cost: Double, date: Date) {
-        arrayOfTransactionItem.append(TransactionItem(name: name, cost: cost, date: date))
+        let realm = try! Realm()
+        try! realm.write {
+            let transaction = TransactionItem(name: name, cost: cost, date: date)
+            category.transactions.append(transaction)
+        }
     }
     
 }
