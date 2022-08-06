@@ -11,4 +11,10 @@ class Transactions {
         }
     }
     
+    static func deleteTransaction(_ transaction: TransactionItem) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(transaction)
+        }
+    }
 }
