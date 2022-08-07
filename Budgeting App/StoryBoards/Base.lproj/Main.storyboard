@@ -314,6 +314,7 @@
                                             <outlet property="categoryNameLabel" destination="JeO-zU-BnY" id="tqD-lG-DYB"/>
                                             <outlet property="expectedValueLabel" destination="ezs-2x-LEi" id="dGt-qR-mLB"/>
                                             <outlet property="realValueLabel" destination="cCC-aP-Tkz" id="TUg-gu-rFD"/>
+                                            <segue destination="rM9-Jx-Jdj" kind="show" identifier="ShowCategory" id="2dH-A2-ozr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -464,6 +465,9 @@
             <point key="canvasLocation" x="929" y="867"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2dH-A2-ozr"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>

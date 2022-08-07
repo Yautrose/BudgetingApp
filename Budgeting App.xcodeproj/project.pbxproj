@@ -117,13 +117,13 @@
 		C1D86211286CA8AE0037312E /* Budgeting App */ = {
 			isa = PBXGroup;
 			children = (
+				C1D86226286CAD000037312E /* StoryBoards */,
+				C1D86229286CAE570037312E /* ViewControllers */,
 				C1175B3B2891A88B004A021F /* Extensions */,
 				C127439B2882A604001151D9 /* Views */,
 				C1D8622A286CAE650037312E /* Models */,
 				C1D8622B286CAE6D0037312E /* Resources */,
-				C1D86226286CAD000037312E /* StoryBoards */,
 				C1D86228286CADDF0037312E /* SupportingFiles */,
-				C1D86229286CAE570037312E /* ViewControllers */,
 				C1D86220286CA8C30037312E /* Info.plist */,
 			);
 			path = "Budgeting App";
@@ -150,9 +150,9 @@
 		C1D86229286CAE570037312E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C17D15AC287F65D700597A20 /* AddNewTransactionViewController.swift */,
 				C1D86216286CA8AE0037312E /* TransactionViewController.swift */,
 				C17D15AA287F28C900597A20 /* CategoryViewController.swift */,
-				C17D15AC287F65D700597A20 /* AddNewTransactionViewController.swift */,
 				C17D15AE287F65F700597A20 /* AddNewCategoryViewController.swift */,
 			);
 			path = ViewControllers;
