@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" rowHeight="64" id="QAf-3c-xae" customClass="TransactionTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" rowHeight="64" id="QAf-3c-xae" customClass="TransactionTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QAf-3c-xae" id="ear-m0-MSn">
@@ -73,6 +73,7 @@
                                             <outlet property="costLabel" destination="Uom-23-V0T" id="PeY-ce-y2A"/>
                                             <outlet property="dateLabel" destination="W8v-14-drP" id="dhs-cx-AAs"/>
                                             <outlet property="nameLabel" destination="QmC-PN-b1i" id="pYt-Cn-X6s"/>
+                                            <segue destination="FsT-jP-BDS" kind="show" identifier="ShowTransaction" id="l2B-4A-M5p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -92,10 +93,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transactions" id="JTX-7x-ddV">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="hLU-ZX-Ldi"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nos-WC-IvF">
                             <connections>
                                 <action selector="addTransactionItem" destination="BYZ-38-t0r" id="hxv-of-JS1"/>
-                                <segue destination="FsT-jP-BDS" kind="show" id="deo-gj-Zku"/>
+                                <segue destination="FsT-jP-BDS" kind="show" identifier="" id="deo-gj-Zku"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -261,7 +263,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="64" id="zDH-JT-JYP" customClass="CategoryTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="64" id="zDH-JT-JYP" customClass="CategoryTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zDH-JT-JYP" id="pGF-aB-cOb">
@@ -334,6 +336,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="ral-79-UBD">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="TIZ-uN-ZBJ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FPn-no-dfL">
                             <connections>
                                 <action selector="addCategorieItem" destination="mqW-R5-F7m" id="teb-4O-NMN"/>
@@ -467,6 +470,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2dH-A2-ozr"/>
+        <segue reference="l2B-4A-M5p"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>

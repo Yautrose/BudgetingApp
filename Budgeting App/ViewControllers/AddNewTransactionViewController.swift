@@ -13,6 +13,7 @@ class AddNewTransactionViewController: UITableViewController {
     let categoryPicker = UIPickerView()
     var selectedDate: Date?
     var selectedCategory: CategoryItem?
+    var currentTransaction: TransactionItem?
     private let dateFormatter = DateFormatter.standard
     
     override func viewDidLoad() {
@@ -21,7 +22,17 @@ class AddNewTransactionViewController: UITableViewController {
         categories = Array(realm.objects(CategoryItem.self))
         createPicker()
         createCategoryPicker()
-
+        setupEditScreen()
+    }
+    
+    private func setupEditScreen() {
+        if currentTransaction != nil {
+            transactionNameTextField.text = currentTransaction?.name
+            transactionCostTextField.text = String(currentTransaction?.cost ?? 0.0)
+            transactionDateTextField.text = String(dateFormatter.string(from: currentTransaction!.date))
+            transactionCategoryTextField.text = currentTransaction?.category.first?.name
+            title = currentTransaction?.name
+        }
     }
     
     func createPicker() {
@@ -82,17 +93,24 @@ class AddNewTransactionViewController: UITableViewController {
               let date = selectedDate,
               !name.isEmpty,
               cost != 0
-        else {
-            return
+        else { return }
+        
+        if currentTransaction != nil {
+            let realm = try! Realm()
+            try! realm.write {
+                currentTransaction!.name = name
+                //currentTransaction?.category = category
+                currentTransaction!.cost = cost
+                currentTransaction?.date = date
+            }
+        } else {
+                Transactions.addNewTransaction (name: name, category: category, cost: cost, date: date)
+            }
+            navigationController?.popViewController(animated: true)
         }
-        
-        Transactions.addNewTransaction (name: name, category: category, cost: cost, date: date)
-        
-        navigationController?.popViewController(animated: true)
-        
     }
     
-}
+
 
 extension AddNewTransactionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     

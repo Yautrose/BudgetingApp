@@ -65,7 +65,7 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let category = categories![indexPath.row]
-        let contextItem = UIContextualAction(style: .normal, title: "Delete") { (_, _, _) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
             Categories.deleteCategory(category)
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])

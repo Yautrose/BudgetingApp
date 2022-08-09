@@ -150,10 +150,10 @@
 		C1D86229286CAE570037312E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C17D15AC287F65D700597A20 /* AddNewTransactionViewController.swift */,
-				C1D86216286CA8AE0037312E /* TransactionViewController.swift */,
 				C17D15AA287F28C900597A20 /* CategoryViewController.swift */,
+				C1D86216286CA8AE0037312E /* TransactionViewController.swift */,
 				C17D15AE287F65F700597A20 /* AddNewCategoryViewController.swift */,
+				C17D15AC287F65D700597A20 /* AddNewTransactionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -161,8 +161,8 @@
 		C1D8622A286CAE650037312E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C1216E2F2876CFFA00392A85 /* TransactionItem.swift */,
 				C1216E312876D0EF00392A85 /* CategoryItem.swift */,
+				C1216E2F2876CFFA00392A85 /* TransactionItem.swift */,
 				C1274397288292BA001151D9 /* Categories.swift */,
 				C127439928829421001151D9 /* Transactions.swift */,
 			);

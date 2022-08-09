@@ -64,11 +64,21 @@ extension TransactionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let transactions = transactions![indexPath.row]
-        let contextItem = UIContextualAction(style: .normal, title: "Delete") { (_, _, _) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
             Transactions.deleteTransaction(transactions)
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
 
         return swipeActions
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowTransaction" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let transaction = transactions![indexPath.row]
+            let newAddTransactionVC = segue.destination as! AddNewTransactionViewController
+            newAddTransactionVC.currentTransaction = transaction
+        }
+    }
+    
 }
