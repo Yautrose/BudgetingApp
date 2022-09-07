@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="29i-SH-5gy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" rowHeight="64" id="QAf-3c-xae" customClass="TransactionTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
@@ -82,14 +82,49 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uvF-zk-6jP"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2l-5v-Ycl">
+                                <rect key="frame" x="0.0" y="44" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWZ-7O-1rq">
+                                        <rect key="frame" x="171.5" y="20" width="32" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-W4-mM4">
+                                        <rect key="frame" x="19" y="15" width="67" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="prevButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h7n-aB-mAN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od5-lj-uZE">
+                                        <rect key="frame" x="290" y="15" width="67" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="OWZ-7O-1rq" firstAttribute="centerX" secondItem="G2l-5v-Ycl" secondAttribute="centerX" id="fvX-eS-GWC"/>
+                                    <constraint firstItem="OWZ-7O-1rq" firstAttribute="centerY" secondItem="G2l-5v-Ycl" secondAttribute="centerY" id="iNi-Fy-Oq3"/>
+                                    <constraint firstAttribute="height" constant="60" id="nXN-Ps-Rti"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.97254901960784312" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="29i-SH-5gy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0Ak-6G-G6f"/>
                             <constraint firstAttribute="bottom" secondItem="29i-SH-5gy" secondAttribute="bottom" id="8QB-w6-mch"/>
+                            <constraint firstItem="G2l-5v-Ycl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B9T-Wt-l4Q"/>
                             <constraint firstItem="29i-SH-5gy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EBR-4J-H1j"/>
                             <constraint firstItem="29i-SH-5gy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WkB-0A-zKX"/>
+                            <constraint firstItem="29i-SH-5gy" firstAttribute="top" secondItem="G2l-5v-Ycl" secondAttribute="bottom" id="aye-yg-h0p"/>
+                            <constraint firstItem="G2l-5v-Ycl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ju0-9d-PLI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G2l-5v-Ycl" secondAttribute="trailing" id="lIK-HN-2uq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transactions" id="JTX-7x-ddV">
@@ -102,12 +137,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nextMonthButton" destination="Od5-lj-uZE" id="f9f-hl-Tlw"/>
+                        <outlet property="prevMonthButton" destination="hmD-W4-mM4" id="q6K-W0-1M9"/>
                         <outlet property="tableView" destination="29i-SH-5gy" id="HUN-5K-nr4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.1304347826087" y="97.767857142857139"/>
+            <point key="canvasLocation" x="1837.5999999999999" y="97.601199400299862"/>
         </scene>
         <!--New Transaction-->
         <scene sceneID="jZL-UB-1Uj">
@@ -241,6 +278,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ef9-2b-Ubt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -256,11 +299,11 @@
             <objects>
                 <viewController id="mqW-R5-F7m" customClass="CategoryViewController" customModule="Budgeting_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D4t-vG-536">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JBG-FE-AA4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="563"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="64" id="zDH-JT-JYP" customClass="CategoryTableViewCell" customModule="Budgeting_App" customModuleProvider="target">
@@ -325,13 +368,33 @@
                                     <outlet property="delegate" destination="mqW-R5-F7m" id="Qly-6k-qGi"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4f-Wj-yh6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ6-XW-YnL">
+                                        <rect key="frame" x="171.5" y="20" width="32" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1ak-9d-tkj"/>
+                                    <constraint firstItem="wJ6-XW-YnL" firstAttribute="centerY" secondItem="f4f-Wj-yh6" secondAttribute="centerY" id="KfY-Q3-lUw"/>
+                                    <constraint firstItem="wJ6-XW-YnL" firstAttribute="centerX" secondItem="f4f-Wj-yh6" secondAttribute="centerX" id="thO-NL-vhM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EDX-xs-iub"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JBG-FE-AA4" firstAttribute="trailing" secondItem="EDX-xs-iub" secondAttribute="trailing" id="9tU-lz-9C0"/>
+                            <constraint firstItem="EDX-xs-iub" firstAttribute="trailing" secondItem="f4f-Wj-yh6" secondAttribute="trailing" id="VX5-MR-UKn"/>
+                            <constraint firstItem="JBG-FE-AA4" firstAttribute="top" secondItem="f4f-Wj-yh6" secondAttribute="bottom" id="XRe-CM-ss2"/>
                             <constraint firstAttribute="bottom" secondItem="JBG-FE-AA4" secondAttribute="bottom" id="eck-Sh-6Mv"/>
-                            <constraint firstItem="JBG-FE-AA4" firstAttribute="top" secondItem="D4t-vG-536" secondAttribute="top" id="qWY-xU-458"/>
+                            <constraint firstItem="f4f-Wj-yh6" firstAttribute="leading" secondItem="EDX-xs-iub" secondAttribute="leading" id="gvl-tJ-vI7"/>
+                            <constraint firstItem="f4f-Wj-yh6" firstAttribute="top" secondItem="EDX-xs-iub" secondAttribute="top" id="m6I-ab-5tH"/>
                             <constraint firstItem="JBG-FE-AA4" firstAttribute="leading" secondItem="EDX-xs-iub" secondAttribute="leading" id="z0Y-hh-W3Z"/>
                         </constraints>
                     </view>
@@ -345,19 +408,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="monthLabel" destination="wJ6-XW-YnL" id="Ekq-uM-329"/>
                         <outlet property="tableView" destination="JBG-FE-AA4" id="Nmq-sy-dWO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SR0-Uw-nZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="867"/>
+            <point key="canvasLocation" x="1837.5999999999999" y="866.71664167916049"/>
         </scene>
         <!--New category-->
         <scene sceneID="KfB-oe-PLO">
             <objects>
                 <tableViewController id="rM9-Jx-Jdj" customClass="AddNewCategoyViewController" customModule="Budgeting_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mIQ-J8-ZRC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -454,9 +518,16 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wcw-Oa-PrJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="vfk-o3-VsM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gwI-01-VkU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gwI-01-VkU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

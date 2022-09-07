@@ -4,16 +4,32 @@ import RealmSwift
 class TransactionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var prevMonthButton: UIButton!
+    @IBOutlet weak var nextMonthButton: UIButton!
     
     private var transactions: Results<TransactionItem>?
     private var dateFormatter = DateFormatter.standard
     private var token: NotificationToken?
+    private var currentMonth: Int = Calendar.current.component(.month, from: Date()) {
+        didSet {
+            updateCurrentMonth()
+        }
+    }
+    private var currentMonthName: String {
+        DateFormatter().shortMonthSymbols[currentMonth - 1]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableHeaderView = UIView()
+        updateCurrentMonth()
+    }
+
+    private func updateCurrentMonth() {
         let realm = try! Realm()
         
-        transactions = realm.objects(TransactionItem.self)
+        transactions = realm.objects(TransactionItem.self).filter("month == %i", currentMonth)
+        token?.invalidate()
         token = transactions!.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             switch changes {
@@ -31,11 +47,19 @@ class TransactionViewController: UIViewController {
                 fatalError("\(error)")
             }
         }
-
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     @IBAction private func addTransactionItem() {
         
+    }
+    
+    @IBAction func prevButtonPressed(_ sender: Any) {
+        currentMonth -= 1
     }
     
 }
@@ -78,6 +102,7 @@ extension TransactionViewController: UITableViewDataSource, UITableViewDelegate 
             let transaction = transactions![indexPath.row]
             let newAddTransactionVC = segue.destination as! AddNewTransactionViewController
             newAddTransactionVC.currentTransaction = transaction
+
         }
     }
     

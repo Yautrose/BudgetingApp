@@ -4,14 +4,31 @@ import RealmSwift
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var monthLabel: UILabel!
     
     var categories: Results<CategoryItem>?
     private var token: NotificationToken?
+    private var currentMonth: Int = Calendar.current.component(.month, from: Date()) {
+        didSet {
+            updateCurrentMonth()
+        }
+    }
+    private var currentMonthName: String {
+        DateFormatter().shortMonthSymbols[currentMonth - 1]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableHeaderView = UIView()
+        updateCurrentMonth()
+    }
+    
+    private func updateCurrentMonth() {
+        monthLabel.text = currentMonthName
+        
         let realm = try! Realm()
-        categories = realm.objects(CategoryItem.self)
+        categories = realm.objects(CategoryItem.self).filter("SUBQUERY(transactions, $transaction, $transaction.month == %i) .@count > 0", currentMonth)
+        token?.invalidate()
         token = categories!.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             switch changes {
@@ -55,6 +72,7 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
         
         let realValue = item
             .transactions
+            .filter("month == %i", currentMonth)
             .map { $0.cost }
             .reduce(0, +)
         

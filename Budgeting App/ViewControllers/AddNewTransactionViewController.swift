@@ -26,12 +26,15 @@ class AddNewTransactionViewController: UITableViewController {
     }
     
     private func setupEditScreen() {
-        if currentTransaction != nil {
-            transactionNameTextField.text = currentTransaction?.name
-            transactionCostTextField.text = String(currentTransaction?.cost ?? 0.0)
-            transactionDateTextField.text = String(dateFormatter.string(from: currentTransaction!.date))
-            transactionCategoryTextField.text = currentTransaction?.category.first?.name
-            title = currentTransaction?.name
+        if let currentTransaction = currentTransaction {
+            transactionNameTextField.text = currentTransaction.name
+            transactionCostTextField.text = String(currentTransaction.cost)
+            transactionDateTextField.text = String(dateFormatter.string(from: currentTransaction.date))
+            transactionCategoryTextField.text = currentTransaction.category.first?.name
+            transactionCategoryTextField.isEnabled = false
+            selectedDate = currentTransaction.date
+            selectedCategory = currentTransaction.category.first
+            title = currentTransaction.name
         }
     }
     
@@ -41,6 +44,7 @@ class AddNewTransactionViewController: UITableViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.maximumDate = .now
+        datePicker.date = currentTransaction?.date ?? Date()
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -99,9 +103,9 @@ class AddNewTransactionViewController: UITableViewController {
             let realm = try! Realm()
             try! realm.write {
                 currentTransaction!.name = name
-                //currentTransaction?.category = category
                 currentTransaction!.cost = cost
-                currentTransaction?.date = date
+                currentTransaction!.date = date
+                currentTransaction!.month = Calendar.current.component(.month, from: date)
             }
         } else {
                 Transactions.addNewTransaction (name: name, category: category, cost: cost, date: date)
@@ -110,8 +114,6 @@ class AddNewTransactionViewController: UITableViewController {
         }
     }
     
-
-
 extension AddNewTransactionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

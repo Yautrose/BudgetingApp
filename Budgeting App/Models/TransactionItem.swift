@@ -7,6 +7,7 @@ class TransactionItem: Object {
     @Persisted var name: String
     @Persisted var cost: Double
     @Persisted var date: Date
+    @Persisted var month: Int
     @Persisted(originProperty: "transactions")
     var category: LinkingObjects<CategoryItem>
     
@@ -16,6 +17,7 @@ class TransactionItem: Object {
         self.name = name
         self.cost = cost
         self.date = date
+        self.month = Calendar.current.component(.month, from: date)
     }
     
 }
