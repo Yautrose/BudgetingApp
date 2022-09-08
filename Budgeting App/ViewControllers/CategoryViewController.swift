@@ -5,6 +5,8 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var prevMonthButton: UIButton!
+    @IBOutlet weak var nextMonthButton: UIButton!
     
     var categories: Results<CategoryItem>?
     private var token: NotificationToken?
@@ -52,6 +54,14 @@ class CategoryViewController: UIViewController {
         
     }
     
+    @IBAction func prevButtonPressed(_ sender: Any) {
+        currentMonth -= 1
+    }
+    
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        currentMonth += 1
+    }
 }
 
 extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {

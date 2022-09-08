@@ -39,7 +39,6 @@ class AddNewTransactionViewController: UITableViewController {
     }
     
     func createPicker() {
-        
         transactionDateTextField.inputView = datePicker
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
@@ -53,7 +52,6 @@ class AddNewTransactionViewController: UITableViewController {
         toolBar.setItems([flexSpace, doneButton], animated: true)
         
         transactionDateTextField.inputAccessoryView = toolBar
-        
     }
     
     @objc func doneAction() {
@@ -67,7 +65,6 @@ class AddNewTransactionViewController: UITableViewController {
     }
     
     func createCategoryPicker() {
-        
         transactionCategoryTextField.inputView = categoryPicker
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
@@ -79,7 +76,6 @@ class AddNewTransactionViewController: UITableViewController {
         toolBar.setItems([flexSpace, doneButton], animated: true)
         
         transactionCategoryTextField.inputAccessoryView = toolBar
-        
     }
     
     @objc func doneCategoryAction() {
@@ -115,7 +111,6 @@ class AddNewTransactionViewController: UITableViewController {
     }
     
 extension AddNewTransactionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -127,5 +122,4 @@ extension AddNewTransactionViewController: UIPickerViewDelegate, UIPickerViewDat
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categories[row].name
     }
-    
 }

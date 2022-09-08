@@ -62,6 +62,9 @@ class TransactionViewController: UIViewController {
         currentMonth -= 1
     }
     
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        currentMonth += 1
+    }
 }
 
 extension TransactionViewController: UITableViewDataSource, UITableViewDelegate {
