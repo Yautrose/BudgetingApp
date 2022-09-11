@@ -4,7 +4,6 @@ import RealmSwift
 class AddNewCategoyViewController: UITableViewController {
     
     @IBOutlet weak var categoryNameTextField: UITextField!
-    @IBOutlet weak var expectedValueTextField: UITextField!
     
     var currentCategory: CategoryItem?
     
@@ -16,26 +15,22 @@ class AddNewCategoyViewController: UITableViewController {
     private func setupEditScreen() {
         if currentCategory != nil {
             categoryNameTextField.text = currentCategory?.name
-            expectedValueTextField.text = String(currentCategory?.expectedValue ?? 0.0)
             title = currentCategory?.name
         }
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         guard let name = categoryNameTextField.text,
-              let expectedValue = Double(expectedValueTextField.text ?? ""),
-              !name.isEmpty,
-              expectedValue != 0
+              !name.isEmpty
         else { return }
         
         if currentCategory != nil {
             let realm = try! Realm()
             try! realm.write {
                 currentCategory?.name = name
-                currentCategory?.expectedValue = expectedValue
             }
         } else {
-            Categories.addNewCategory(name, expectedValue)
+            Categories.addNewCategory(name)
         }
         navigationController?.popViewController(animated: true)
     }

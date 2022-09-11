@@ -4,19 +4,38 @@ import RealmSwift
 class TransactionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var nextMonthButton: UIButton!
     
     private var transactions: Results<TransactionItem>?
     private var dateFormatter = DateFormatter.standard
     private var token: NotificationToken?
-    private var currentMonth: Int = Calendar.current.component(.month, from: Date()) {
+    private var currentMonth = Calendar.current.component(.month, from: Date()) {
+        didSet {
+            updateCurrentMonth()
+        }
+    }
+    private var currentYear = Calendar.current.component(.year, from: Date()) {
         didSet {
             updateCurrentMonth()
         }
     }
     private var currentMonthName: String {
-        DateFormatter().shortMonthSymbols[currentMonth - 1]
+        switch currentMonth {
+        case 1: return "Январь"
+        case 2: return "Февраль"
+        case 3: return "Март"
+        case 4: return "Апрель"
+        case 5: return "Май"
+        case 6: return "Июнь"
+        case 7: return "Июль"
+        case 8: return "Август"
+        case 9: return "Сентябрь"
+        case 10: return "Октябрь"
+        case 11: return "Ноябрь"
+        default: return "Декабрь"
+        }
     }
     
     override func viewDidLoad() {
@@ -26,8 +45,9 @@ class TransactionViewController: UIViewController {
     }
 
     private func updateCurrentMonth() {
-        let realm = try! Realm()
+        monthLabel.text = currentMonthName + " " + String(currentYear)
         
+        let realm = try! Realm()
         transactions = realm.objects(TransactionItem.self).filter("month == %i", currentMonth)
         token?.invalidate()
         token = transactions!.observe { [weak self] (changes: RealmCollectionChange) in
@@ -59,11 +79,21 @@ class TransactionViewController: UIViewController {
     }
     
     @IBAction func prevButtonPressed(_ sender: Any) {
-        currentMonth -= 1
+        if currentMonth != 1 {
+            currentMonth -= 1
+        } else {
+            currentMonth = 12
+            currentYear -= 1
+        }
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        currentMonth += 1
+        if currentMonth != 12 {
+            currentMonth += 1
+        } else {
+            currentMonth = 1
+            currentYear += 1
+        }
     }
 }
 

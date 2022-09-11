@@ -3,7 +3,6 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var realValueLabel: UILabel!
-    @IBOutlet weak var expectedValueLabel: UILabel!
     @IBOutlet weak var categoryNameLabel: UILabel!
     
     override func awakeFromNib() {

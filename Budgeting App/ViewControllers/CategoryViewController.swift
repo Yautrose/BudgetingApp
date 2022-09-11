@@ -10,7 +10,6 @@ class CategoryViewController: UIViewController {
     
     var categories: Results<CategoryItem>?
     private var token: NotificationToken?
-    
     private var currentMonth = Calendar.current.component(.month, from: Date()) {
         didSet {
             updateCurrentMonth()
@@ -21,7 +20,6 @@ class CategoryViewController: UIViewController {
             updateCurrentMonth()
         }
     }
-    
     private var currentMonthName: String {
         switch currentMonth {
         case 1: return "Январь"
@@ -71,10 +69,6 @@ class CategoryViewController: UIViewController {
         }
     }
     
-    @IBAction private func addCategorieItem() {
-        
-    }
-    
     @IBAction func prevButtonPressed(_ sender: Any) {
         if currentMonth != 1 {
             currentMonth -= 1
@@ -109,12 +103,11 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTableViewCell
         let item = categories![indexPath.row]
         cell.categoryNameLabel.text = item.name
-        cell.expectedValueLabel.text = String(item.expectedValue)
         
         let realValue = item
             .transactions
             .filter("month == %i", currentMonth)
-            //.filter("year == %i", currentYear)
+            .filter("year == %i", currentYear)
             .map { $0.cost }
             .reduce(0, +)
         
