@@ -10,13 +10,33 @@ class CategoryViewController: UIViewController {
     
     var categories: Results<CategoryItem>?
     private var token: NotificationToken?
-    private var currentMonth: Int = Calendar.current.component(.month, from: Date()) {
+    
+    private var currentMonth = Calendar.current.component(.month, from: Date()) {
         didSet {
             updateCurrentMonth()
         }
     }
+    private var currentYear = Calendar.current.component(.year, from: Date()) {
+        didSet {
+            updateCurrentMonth()
+        }
+    }
+    
     private var currentMonthName: String {
-        DateFormatter().shortMonthSymbols[currentMonth - 1]
+        switch currentMonth {
+        case 1: return "Январь"
+        case 2: return "Февраль"
+        case 3: return "Март"
+        case 4: return "Апрель"
+        case 5: return "Май"
+        case 6: return "Июнь"
+        case 7: return "Июль"
+        case 8: return "Август"
+        case 9: return "Сентябрь"
+        case 10: return "Октябрь"
+        case 11: return "Ноябрь"
+        default: return "Декабрь"
+        }
     }
     
     override func viewDidLoad() {
@@ -26,10 +46,11 @@ class CategoryViewController: UIViewController {
     }
     
     private func updateCurrentMonth() {
-        monthLabel.text = currentMonthName
+        monthLabel.text = currentMonthName + " " + String(currentYear)
         
         let realm = try! Realm()
         categories = realm.objects(CategoryItem.self).filter("SUBQUERY(transactions, $transaction, $transaction.month == %i) .@count > 0", currentMonth)
+        categories = realm.objects(CategoryItem.self).filter("SUBQUERY(transactions, $transaction, $transaction.year == %i) .@count > 0", currentYear)
         token?.invalidate()
         token = categories!.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
@@ -55,13 +76,23 @@ class CategoryViewController: UIViewController {
     }
     
     @IBAction func prevButtonPressed(_ sender: Any) {
-        currentMonth -= 1
+        if currentMonth != 1 {
+            currentMonth -= 1
+        } else {
+            currentMonth = 12
+            currentYear -= 1
+        }
     }
-    
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        currentMonth += 1
+        if currentMonth != 12 {
+            currentMonth += 1
+        } else {
+            currentMonth = 1
+            currentYear += 1
+        }
     }
+    
 }
 
 extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
@@ -83,6 +114,7 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
         let realValue = item
             .transactions
             .filter("month == %i", currentMonth)
+            //.filter("year == %i", currentYear)
             .map { $0.cost }
             .reduce(0, +)
         

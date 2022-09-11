@@ -8,6 +8,7 @@ class TransactionItem: Object {
     @Persisted var cost: Double
     @Persisted var date: Date
     @Persisted var month: Int
+    @Persisted var year: Int
     @Persisted(originProperty: "transactions")
     var category: LinkingObjects<CategoryItem>
     
@@ -18,6 +19,7 @@ class TransactionItem: Object {
         self.cost = cost
         self.date = date
         self.month = Calendar.current.component(.month, from: date)
+        self.year = Calendar.current.component(.year, from: date)
     }
     
 }
